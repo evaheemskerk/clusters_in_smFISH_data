@@ -118,8 +118,9 @@ def data_prep(file_path_cellpose, file_path_outline_files):
         parts = item.split('_')
         donor = parts[0][:2]  # First 2 characters, e.g., 'D1'
         timepoint = parts[1]  # Second part, e.g., '0H'
-        type = 'C' if 'C' in parts[0] else 'HuRKO' #dit kan mis gaan als er meerdere inputs zijn.
-        sample = parts[2] if len(parts) > 2 else None
+        type = parts[0][2:]
+        # sample = parts[2] if len(parts) > 2 else None #This was for the dataset of Valeria
+        sample = parts[3]  # This is for dataset Zan
         data.append({'ID': item, 'Donor': donor, 'TimePoint': timepoint, 'Type': type, 'Sample': sample})
 
 
@@ -132,8 +133,9 @@ def data_prep(file_path_cellpose, file_path_outline_files):
             parts = item.split('_')
             if len(parts)>1: #dit moet ik even checken
                 donor = parts[0][:2]  # First 2 characters, e.g., 'D1'
-                type = 'C' if 'C' in parts[0] else 'HuRKO'  # dit kan mis gaan als er meerdere inputs zijn.
-                sample = parts[1] if len(parts) > 2 else None #DIT GAAT NOG NIET GOED!
+                type = parts[0][2:]
+                # sample = parts[1] if len(parts) > 2 else None #This was for the dataset of Valeria
+                sample = parts[3]  # This is for data set Zan
                 data_2.append({'ID': item, 'Donor': donor, 'TimePoint': timepoint, 'Type': type, 'Sample': sample})
     files_outline_df = pd.DataFrame(data_2)
     #merge the two dataframes
@@ -149,8 +151,9 @@ def data_prep_cyto(file_path_cellpose, file_path_outline_files):
             parts = item.split('_')
             donor = parts[0][:2]  # First 2 characters, e.g., 'D1'
             timepoint = folder  # Second part, e.g., '0H'
-            type = 'C' if 'C' in parts[0] else 'HuRKO' #dit kan mis gaan als er meerdere inputs zijn.
-            sample = parts[1] if len(parts) > 2 else None
+            type = parts[0][2:]
+            # sample = parts[1] if len(parts) > 2 else None #This was for the dataset of Valeria
+            sample = parts[3]  # This is for dataset Zan
             data.append({'ID': item, 'Donor': donor, 'TimePoint': timepoint, 'Type': type, 'Sample': sample})
 
 
@@ -163,8 +166,9 @@ def data_prep_cyto(file_path_cellpose, file_path_outline_files):
             parts = item.split('_')
             if len(parts)>1: #dit moet ik even checken
                 donor = parts[0][:2]  # First 2 characters, e.g., 'D1'
-                type = 'C' if 'C' in parts[0] else 'HuRKO'  # dit kan mis gaan als er meerdere inputs zijn.
-                sample = parts[1] if len(parts) > 2 else None #DIT GAAT NOG NIET GOED!
+                type = parts[0][2:]
+                # sample = parts[1] if len(parts) > 2 else None #This was for the dataset of Valeria
+                sample = parts[3]  # This is for data set Zan
                 data_2.append({'ID': item, 'Donor': donor, 'TimePoint': timepoint, 'Type': type, 'Sample': sample})
     files_outline_df = pd.DataFrame(data_2)
     #merge the two dataframes
