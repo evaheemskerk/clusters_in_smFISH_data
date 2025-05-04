@@ -6,11 +6,11 @@ This algorithm allows you to find the clusters in smFISH data.
 * main_cytoplasm: run when interested in the cytoplasm 
 
 ## Installation
-Before using the python algorithm, ensure you have the following libraries installed in your local environment: numpy pandas seaborn tqdm scikit.learn scikit.image matplotlib.pyplot
+Before using the python algorithm, ensure you have the following libraries installed in your local environment: numpy pandas seaborn tqdm scikit.learn scikit.image matplotlib.pyplot openpyxl XlsxWriter
 If not; use the package manager [pip](https://pip.pypa.io/en/stable/) to install these.
 
 ```bash
-pip install numpy pandas seaborn tqdm scikit.learn scikit.image matplotlib.pyplot
+pip install numpy pandas seaborn tqdm scikit.learn scikit.image matplotlib.pyplot openpyxl XlsxWriter
 ```
 Make sure to use matplotlib.pyplot version 3.9.2. 
 Download all the python files in this repository. 
