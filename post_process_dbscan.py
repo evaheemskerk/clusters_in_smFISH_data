@@ -44,15 +44,17 @@ def process_dbscan (file_name_dbscan, file_name_spots, resolution_xy, resolution
             data_type = data_timepoint[data_timepoint['Type'] == type]
             for id in data_type['ID'].unique():
                 spots = data_spots[data_spots['ID'] == id]
-                #print(spots)
                 cytokines = spots['cytokine'].unique()
                 particles = spots.iloc[:, [3, 4, 5]].values
+
                 particles_df = dbscan_details(eps, min_samples, particles)
                 arr = particles_df['label'].unique()
                 N_clusters = len(arr) - 1 if -1 in arr else len(arr)
+
                 for cluster in particles_df['label'].unique():
                     if cluster == -1:
                         continue
+
                     particles = particles_df[particles_df['label'] == cluster].iloc[:, [1, 2, 3]].values
                     n_particles_per_cluster = len(particles)
                     distances = calculate_distance(particles)
