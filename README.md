@@ -26,7 +26,7 @@ Input parameters:
 * **eps** = input value for DBSCAN
 * **min_samples** = input value for DBSCAN
 * **p_value** = p_value for statistic test
-* cytokine_analysis = Fill in BOTH if interested in both TNF and IFN, or fill in 'TNF' or 'IFN' when interested in a single analysis
+* **cytokine_analysis** = Fill in BOTH if interested in both TNF and IFN, or fill in 'TNF' or 'IFN' when interested in a single analysis
   
 Input files:
 * **file_name** = File path to the Spots_with_localization.csv file
